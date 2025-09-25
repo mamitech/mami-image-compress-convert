@@ -59,6 +59,7 @@ setup(
             'pytest-cov>=2.0',
             'black>=21.0',
             'flake8>=3.8',
+            'pre-commit>=2.20',
         ],
     },
 

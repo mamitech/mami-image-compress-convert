@@ -22,7 +22,7 @@ A powerful, user-friendly terminal application for image compression and format 
 - **Custom Quality**: Specify any percentage (1-100%)
 
 ### 📝 **Filename Control**
-- **Add suffix**: Customize output naming (default: "-compressed")
+- **Add suffix**: Customize output naming (default: "-compressed" or "-converted" for Convert Only mode)
 - **Keep original**: Maintain same filename in output folder
 - **Smart conflict resolution**: Auto-numbering for duplicates
 
@@ -179,7 +179,7 @@ Choose output filename format:
 
 Enter your choice (or press Enter): [ENTER]
 
-Suffix (press Enter for '-compressed'): -webp
+Suffix (press Enter for '-converted'): -webp
 
 🔄 Processing images: Convert Only → WebP
 
@@ -257,6 +257,15 @@ chmod +x mami-image
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🔒 Security Policy
+
+We take security seriously. Please report any vulnerabilities to [engineering@mamiteam.com](mailto:engineering@mamiteam.com).
+
+**Last updated**: September 2025
+
+---
+
 
 ## 🤝 Contributing
 

@@ -79,7 +79,7 @@ class ImageCompressor:
             else:
                 print(f"{Colors.RED}Invalid choice. Please select 1, 2, 3, 4, or press Enter for recommended.{Colors.ENDC}")
 
-    def get_output_suffix(self):
+    def get_output_suffix(self, default_suffix: str):
         print(f"\n{Colors.BLUE}{Colors.BOLD}📝 Output Filename Settings{Colors.ENDC}\n")
 
         print("Choose output filename format:")
@@ -89,14 +89,14 @@ class ImageCompressor:
         while True:
             choice = input(f"\n{Colors.BOLD}Enter your choice (1-2, or press Enter for recommended):{Colors.ENDC} ").strip()
             if choice == '' or choice == '1':
-                # Ask for custom suffix
+                # Prompt for custom suffix (default depends on mode)
                 print(f"\n{Colors.CYAN}Enter suffix for output files:{Colors.ENDC}")
-                print(f"Example: '-compressed' will rename 'photo.jpg' to 'photo-compressed.jpg'")
-                suffix = input(f"{Colors.BOLD}Suffix (press Enter for '-compressed'):{Colors.ENDC} ").strip()
+                print(f"Example: '{default_suffix}' will rename 'photo.jpg' to 'photo{default_suffix}.jpg'")
+                suffix = input(f"{Colors.BOLD}Suffix (press Enter for '{default_suffix}'):{Colors.ENDC} ").strip()
                 if not suffix:
-                    suffix = "-compressed"
+                    suffix = default_suffix
                 elif not suffix.startswith('-') and not suffix.startswith('_'):
-                    # Add dash if user didn't include separator
+                    # Add separator if user omitted it
                     suffix = f"-{suffix}"
                 return suffix
             elif choice == '2':
@@ -151,8 +151,13 @@ class ImageCompressor:
         if mode in ["compress_convert", "convert_compress", "convert_only"]:
             output_ext, format_name = self.get_output_format()
 
-        # Get suffix settings
-        suffix = self.get_output_suffix()
+        # Determine default suffix based on processing mode
+        if mode == "convert_only":
+            default_suffix_val = "-converted"
+        else:
+            default_suffix_val = "-compressed"
+        # Get suffix settings (default varies by mode)
+        suffix = self.get_output_suffix(default_suffix_val)
 
         return quality, quality_name, output_ext, format_name, mode, mode_name, suffix
 
