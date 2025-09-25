@@ -1,0 +1,80 @@
+#!/bin/bash
+
+set -euo pipefail  # Exit on error, undefined vars, pipe failures
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Function to print colored output
+print_status() {
+    echo -e "${2}${1}${NC}"
+}
+
+# Function to check dependencies
+check_dependencies() {
+    # Check if Python 3 is available
+    if ! command -v python3 &> /dev/null; then
+        print_status "❌ Python 3 is required but not installed." "$RED"
+        print_status "Please install Python 3.7+ and try again." "$YELLOW"
+        exit 1
+    fi
+
+    # Check Python version
+    python_version=$(python3 -c "import sys; print('.'.join(map(str, sys.version_info[:2])))")
+    if ! python3 -c "import sys; exit(0 if sys.version_info >= (3, 7) else 1)" 2>/dev/null; then
+        print_status "❌ Python 3.7+ is required. Found: $python_version" "$RED"
+        exit 1
+    fi
+
+    # Check if Pillow is installed
+    if ! python3 -c "import PIL" 2>/dev/null; then
+        print_status "❌ Pillow library is not installed." "$RED"
+        print_status "Please install it with: pip install -r requirements.txt" "$YELLOW"
+        exit 1
+    fi
+}
+
+# Get the directory where this script is located
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )" || {
+    print_status "❌ Failed to determine script directory" "$RED"
+    exit 1
+}
+
+# Check dependencies first
+check_dependencies
+
+# Check if we're in a directory with input/output folders (project mode)
+if [[ -d "./input" && -d "./output" ]]; then
+    # We're in project directory, run from here
+    if ! python3 "$SCRIPT_DIR/app.py" "$@"; then
+        print_status "❌ Image processing failed" "$RED"
+        exit 1
+    fi
+elif [[ -d "$SCRIPT_DIR/input" && -d "$SCRIPT_DIR/output" ]]; then
+    # Script is installed globally, run from script directory
+    if ! cd "$SCRIPT_DIR"; then
+        print_status "❌ Failed to change to script directory: $SCRIPT_DIR" "$RED"
+        exit 1
+    fi
+    if ! python3 app.py "$@"; then
+        print_status "❌ Image processing failed" "$RED"
+        exit 1
+    fi
+else
+    # Create project structure in current directory
+    print_status "🚀 Setting up image compression workspace in current directory..." "$BLUE"
+    if ! mkdir -p input output; then
+        print_status "❌ Failed to create directories" "$RED"
+        exit 1
+    fi
+    print_status "📁 Created input/ and output/ folders" "$GREEN"
+    print_status "📝 Place your images in the input/ folder and run mami-image again" "$YELLOW"
+    echo ""
+    echo "Directory structure:"
+    echo "  input/    <- Place images here"
+    echo "  output/   <- Compressed images will appear here"
+fi

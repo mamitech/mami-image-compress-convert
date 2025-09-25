@@ -1,0 +1,15 @@
+include README.md
+include LICENSE
+include CONTRIBUTING.md
+include SECURITY.md
+include requirements.txt
+include mami-image
+include app.py
+recursive-include input *.gitkeep
+recursive-include output *.gitkeep
+recursive-include .github *
+global-exclude __pycache__
+global-exclude *.py[co]
+global-exclude .DS_Store
+global-exclude *.pyc
+global-exclude *~

@@ -1,0 +1,83 @@
+name: ❓ Question/Help
+description: Ask a question or get help using the tool
+title: "[Question]: "
+labels: ["question", "help-wanted"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question about using Image Compressor & Converter? 🤔
+        We're here to help!
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would you like to know?
+      placeholder: "I'm trying to... but I'm not sure how to..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Question Topic
+      description: What is your question about?
+      options:
+        - Installation/Setup
+        - Usage/How-to
+        - Image Formats
+        - Processing Modes
+        - Error Messages
+        - Performance Issues
+        - Feature Clarification
+        - Best Practices
+        - Contributing
+        - Other
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Provide more details about your situation
+      placeholder: |
+        - What are you trying to achieve?
+        - What have you tried so far?
+        - Any relevant details about your setup?
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      description: What OS are you using?
+      placeholder: "Windows 11, macOS Ventura, Ubuntu 22.04, etc."
+
+  - type: input
+    id: python-version
+    attributes:
+      label: Python Version
+      description: What version of Python? (if relevant)
+      placeholder: "3.9.7"
+
+  - type: textarea
+    id: attempted-solutions
+    attributes:
+      label: What have you tried?
+      description: Describe any solutions you've already attempted
+      placeholder: |
+        - Checked the README
+        - Searched existing issues
+        - Tried different settings
+        - etc.
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Before asking
+      description: Please confirm you've done the following
+      options:
+        - label: I've read the README documentation
+          required: true
+        - label: I've searched existing issues for similar questions
+          required: true

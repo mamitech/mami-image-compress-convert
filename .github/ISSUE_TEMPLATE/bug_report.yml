@@ -1,0 +1,129 @@
+name: 🐛 Bug Report
+description: Report a bug or unexpected behavior
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! 🐛
+        Please fill out this form as completely as possible.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: Describe the bug...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Place image 'example.jpg' in input folder
+        2. Run mami-image command
+        3. Select processing mode...
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What you expected to happen
+      placeholder: The image should be processed and saved to output folder
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened
+      placeholder: Error message or unexpected result
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      description: What operating system are you using?
+      options:
+        - Windows 10/11
+        - macOS (Intel)
+        - macOS (Apple Silicon)
+        - Ubuntu/Debian
+        - Other Linux
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: python-version
+    attributes:
+      label: Python Version
+      description: What version of Python are you using?
+      placeholder: "3.9.7"
+    validations:
+      required: true
+
+  - type: input
+    id: pillow-version
+    attributes:
+      label: Pillow Version
+      description: What version of Pillow is installed? (run `pip show Pillow`)
+      placeholder: "10.0.0"
+
+  - type: dropdown
+    id: image-format
+    attributes:
+      label: Image Format(s) Affected
+      description: What image format(s) are you having issues with?
+      multiple: true
+      options:
+        - JPEG (.jpg/.jpeg)
+        - PNG (.png)
+        - WebP (.webp)
+        - BMP (.bmp)
+        - TIFF (.tiff/.tif)
+        - All formats
+        - Not format-specific
+
+  - type: textarea
+    id: error-message
+    attributes:
+      label: Error Message (if any)
+      description: Copy and paste any error messages
+      render: shell
+      placeholder: Paste error message here...
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here
+      placeholder: |
+        - Image file size
+        - Special characters in filename
+        - Network drive usage
+        - etc.
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmation
+      description: Please confirm the following
+      options:
+        - label: I have searched existing issues for this problem
+          required: true
+        - label: I can reproduce this issue consistently
+          required: true
+        - label: I am using the latest version of the tool
+          required: false
