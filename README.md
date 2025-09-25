@@ -196,41 +196,26 @@ Suffix (press Enter for '-compressed'): -webp
 🎉 Processing completed! Check the output folder.
 ```
 
-## 🔧 Advanced Usage
+## 🚀 Ways to Contribute
 
-### For Developers
+### 🐛 Bug Reports
+- Use the GitHub Issues tab
+- Include steps to reproduce
+- Mention your OS and Python version
+- Attach sample images if relevant (without personal data)
 
-**Command Line Integration:**
-Add to your shell profile for global access:
-```bash
-# Add this line to ~/.zshrc or ~/.bashrc
-alias mami-image='/path/to/mami-image-compress-convert/mami-image'
-```
+### 💡 Feature Requests
+- Describe the feature and its use case
+- Explain why it would be valuable
+- Consider if it fits the project's scope
 
-**Batch Processing Tips:**
-- Process entire folders at once
-- Mix different file formats in input folder
-- Use consistent naming with custom suffixes
-
-**Format Conversion Guide:**
-- **PNG → JPEG**: Removes transparency, adds white background
-- **JPEG → PNG**: Preserves quality, adds transparency support
-- **Any → WebP**: Modern format with excellent compression
-- **RGBA → RGB**: Smart transparency handling for incompatible formats
-
-### For Non-Developers
-
-**Getting Started:**
-1. Download and extract the mami-image-compress-convert folder
-2. Install Python from python.org if not already installed
-3. Open Terminal/Command Prompt in the mami-image-compress-convert folder
-4. Run the setup and usage commands above
-
-**Tips for Best Results:**
-- **For web use**: Convert to WebP format for smallest files
-- **For printing**: Use PNG or high-quality JPEG
-- **For social media**: Medium quality JPEG works well
-- **For archiving**: PNG preserves original quality
+### 🔧 Code Contributions
+- Fork the repository
+- Create a feature branch (`git checkout -b feature/amazing-feature`)
+- Make your changes
+- Test thoroughly
+- Commit with clear messages
+- Push and create a Pull Request
 
 ## ❓ FAQ
 
@@ -296,22 +281,6 @@ If this project helped you, please:
 - 💡 Suggest improvements
 - 📢 Share it with others
 
-## 🗺️ Roadmap
-
-### Planned Features:
-- [ ] Additional formats (AVIF, HEIC)
-- [ ] Drag-and-drop GUI wrapper
-- [ ] Cloud storage integration
-- [ ] Automated batch processing
-- [ ] Configuration file support
-- [ ] Plugin system for custom filters
-
-### Recent Updates:
-- ✅ Four processing modes (Compress/Convert combinations)
-- ✅ Custom filename suffixes
-- ✅ Smart format conversion with transparency handling
-- ✅ Interactive terminal UI with progress bars
-
 ## 📊 Project Stats
 
 ![GitHub stars](https://img.shields.io/github/stars/mamitech/mami-image-compress-convert)
@@ -320,15 +289,9 @@ If this project helped you, please:
 ![GitHub license](https://img.shields.io/github/license/mamitech/mami-image-compress-convert)
 ![Python version](https://img.shields.io/badge/python-3.7%2B-blue)
 
-## 🙏 Acknowledgments
-
-- Built with [Pillow](https://pillow.readthedocs.io/) for robust image processing
-- Inspired by the need for simple, powerful image tools
-- Community feedback and contributions
-
 ---
 
-**Made with ❤️ by Mami Team for the open source community**
+**Made with ❤️ by Mamikos Engineering Team for the open source community**
 
 *Happy image processing! 📸✨*
 
@@ -338,3 +301,5 @@ For questions, support, or collaboration opportunities, reach out to us:
 - **Email**: engineering@mamiteam.com
 - **Issues**: Use GitHub Issues for bug reports and feature requests
 - **Discussions**: Use GitHub Discussions for questions and community chat
+
+Built with [Pillow](https://pillow.readthedocs.io/) for robust image processing.
