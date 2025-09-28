@@ -300,9 +300,8 @@ If this project helped you, please:
 ---
 *Last updated*: September 2025
 
-**Made with ❤️ by Mamikos Engineering Team for the open source community**
+**Made with ❤️ by Mamikos Engineering Team**
 
-*Happy image processing! 📸✨*
 
 ## 📧 Contact
 
