@@ -262,7 +262,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 We take security seriously. Please report any vulnerabilities to [engineering@mamiteam.com](mailto:engineering@mamiteam.com).
 
-**Last updated**: September 2025
 
 ---
 
@@ -299,6 +298,7 @@ If this project helped you, please:
 ![Python version](https://img.shields.io/badge/python-3.7%2B-blue)
 
 ---
+*Last updated*: September 2025
 
 **Made with ❤️ by Mamikos Engineering Team for the open source community**
 
